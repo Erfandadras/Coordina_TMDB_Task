@@ -15,6 +15,10 @@
 		E4AC9B422DED76380051F261 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B412DED76380051F261 /* NetworkClient.swift */; };
 		E4AC9B442DED76540051F261 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B432DED76540051F261 /* DataParser.swift */; };
 		E4AC9B462DED76650051F261 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B452DED76650051F261 /* API.swift */; };
+		E4AC9B4A2DED77940051F261 /* Data+decode+mismatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B492DED778A0051F261 /* Data+decode+mismatch.swift */; };
+		E4AC9B4E2DED786E0051F261 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B4D2DED78690051F261 /* Queue.swift */; };
+		E4AC9B512DED78940051F261 /* Bundle+decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B502DED788B0051F261 /* Bundle+decode.swift */; };
+		E4AC9B532DED78E80051F261 /* Array+replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B522DED78E10051F261 /* Array+replace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		E4AC9B412DED76380051F261 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		E4AC9B432DED76540051F261 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		E4AC9B452DED76650051F261 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E4AC9B492DED778A0051F261 /* Data+decode+mismatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+decode+mismatch.swift"; sourceTree = "<group>"; };
+		E4AC9B4D2DED78690051F261 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		E4AC9B502DED788B0051F261 /* Bundle+decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+decode.swift"; sourceTree = "<group>"; };
+		E4AC9B522DED78E10051F261 /* Array+replace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+replace.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,7 @@
 				E4AC9B392DED6F8E0051F261 /* Scene */,
 				E4AC9B362DED6F600051F261 /* Services */,
 				E4AC9B352DED6F580051F261 /* Core */,
+				E4AC9B472DED776A0051F261 /* Utils */,
 			);
 			path = TMDB_Task_erfan_dadras;
 			sourceTree = "<group>";
@@ -159,6 +168,33 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		E4AC9B472DED776A0051F261 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC9B4F2DED78830051F261 /* Helper */,
+				E4AC9B482DED77800051F261 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E4AC9B482DED77800051F261 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC9B502DED788B0051F261 /* Bundle+decode.swift */,
+				E4AC9B522DED78E10051F261 /* Array+replace.swift */,
+				E4AC9B492DED778A0051F261 /* Data+decode+mismatch.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E4AC9B4F2DED78830051F261 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC9B4D2DED78690051F261 /* Queue.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -235,9 +271,13 @@
 				E4AC9B402DED703D0051F261 /* NetworkError.swift in Sources */,
 				E4AC9B442DED76540051F261 /* DataParser.swift in Sources */,
 				E4AC9B332DED6F4C0051F261 /* MovieListView.swift in Sources */,
+				E4AC9B4E2DED786E0051F261 /* Queue.swift in Sources */,
 				E4AC9B422DED76380051F261 /* NetworkClient.swift in Sources */,
 				E4AC9B462DED76650051F261 /* API.swift in Sources */,
 				E4AC9B342DED6F4C0051F261 /* TMDB_Task_erfan_dadrasApp.swift in Sources */,
+				E4AC9B512DED78940051F261 /* Bundle+decode.swift in Sources */,
+				E4AC9B532DED78E80051F261 /* Array+replace.swift in Sources */,
+				E4AC9B4A2DED77940051F261 /* Data+decode+mismatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
