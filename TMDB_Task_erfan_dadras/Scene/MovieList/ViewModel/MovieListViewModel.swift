@@ -124,6 +124,7 @@ extension MovieListViewModel{
     /// Implements debounced search with 500ms delay to avoid excessive API calls
     private func bind() {
         $keyword
+            .dropFirst()
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main) // Debounce for 500ms
             .removeDuplicates() // Avoid triggering fetch for the same value
             .map({$0.trimmingCharacters(in: .whitespacesAndNewlines)})

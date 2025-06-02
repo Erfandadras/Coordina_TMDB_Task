@@ -18,6 +18,8 @@ struct MovieListView: View {
     /// Safe area insets from environment
     @Environment(\.safeAreaInsets) var insets
     
+    /// Coordinator managing Navigations
+    @StateObject var coordinator = Coordinator()
     // MARK: - Initialization
     /// Initializes the view with appropriate network client based on build configuration
     init() {
@@ -35,52 +37,75 @@ struct MovieListView: View {
     
     // MARK: - View Body
     var body: some View {
-        NavigationStack {
-            ScrollViewReader { reader in
-                ScrollView {
-                    // Error State Display
-                    if case .failure(let error) = viewModel.state {
-                        Text(error.localizedDescription)
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(12)
-                            .background(.red)
-                            .padding(.top, 1)
-                    }
-                    // Loading State Display
-                    else if viewModel.state == .loading {
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle())
-                    }
-                    
-                    // Movie List Content
-                    LazyVStack(spacing: 8){
-                        ForEach(viewModel.movies.indices, id: \.self) { index in
-                            let item = viewModel.movies[index]
-                            MovieListItemView(data: item)
-                                .background(.white)
+        NavigationStack(path: $coordinator.navigationPath){
+            ScrollView {
+                // Error State Display
+                if case .failure(let error) = viewModel.state {
+                    Text(error.localizedDescription)
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(12)
+                        .background(.red)
+                        .padding(.top, 1)
+                }
+                // Loading State Display
+                else if viewModel.state == .loading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                }
+                
+                // Movie List Content
+                LazyVStack(spacing: 8){
+                    ForEach(viewModel.movies.indices, id: \.self) { index in
+                        let item = viewModel.movies[index]
+                        MovieListItemView(data: item)
+                            .background(.white)
                             .id(item.id)
-                            if index == viewModel.movies.count - 1 && viewModel.hasMoreData {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle())
-                                    .onAppear {
-                                        if viewModel.state == .success {
-                                            viewModel.loadMore()
-                                        }
+                        if index == viewModel.movies.count - 1 && viewModel.hasMoreData {
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle())
+                                .onAppear {
+                                    if viewModel.state == .success {
+                                        viewModel.loadMore()
                                     }
-                            }
+                                }
                         }
                     }
-                    .padding(.bottom, insets.bottom)
-                }// scrollView
-                .scrollDismissesKeyboard(.automatic)
-                .refreshable {
-                    viewModel.refresh()
                 }
-                .navigationTitle("Home")
-                .navigationBarTitleDisplayMode(.automatic)
-                .background(.white)
-                .animation(.linear, value: focused)
+                .padding(.bottom, insets.bottom)
+            }// scrollView
+            .scrollDismissesKeyboard(.automatic)
+            .refreshable {
+                viewModel.refresh()
+            }
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.automatic)
+            .background(.white)
+            .animation(.linear, value: focused)
+            .toolbar(content: {
+                Button {
+                    coordinator.append(MovieListCoordinatorPath.authorInfo)
+                } label: {
+                    Image(systemName: "exclamationmark")
+                        .foregroundStyle(.black)
+                        .frame(width: 24,
+                               height: 24,
+                               alignment: .center)
+                        .padding(4)
+                        .background {
+                            Color.white
+                                .clipShape(Circle())
+                                .shadow(color: .black.opacity(0.15),
+                                        radius: 0, x: 0, y: 1)
+                        }
+                }
+            })
+            .navigationDestination(for: MovieListCoordinatorPath.self) { item in
+                switch item {
+                case .authorInfo:
+                    AuthorInfoView()
+                        .environmentObject(coordinator)
+                }
             }
         }// navigation view
         .onTapGesture {
