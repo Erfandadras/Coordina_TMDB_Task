@@ -12,6 +12,9 @@
 		E4AC9B332DED6F4C0051F261 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B2E2DED6F4C0051F261 /* MovieListView.swift */; };
 		E4AC9B342DED6F4C0051F261 /* TMDB_Task_erfan_dadrasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B2F2DED6F4C0051F261 /* TMDB_Task_erfan_dadrasApp.swift */; };
 		E4AC9B402DED703D0051F261 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B3F2DED703D0051F261 /* NetworkError.swift */; };
+		E4AC9B422DED76380051F261 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B412DED76380051F261 /* NetworkClient.swift */; };
+		E4AC9B442DED76540051F261 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B432DED76540051F261 /* DataParser.swift */; };
+		E4AC9B462DED76650051F261 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B452DED76650051F261 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		E4AC9B2E2DED6F4C0051F261 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		E4AC9B2F2DED6F4C0051F261 /* TMDB_Task_erfan_dadrasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_Task_erfan_dadrasApp.swift; sourceTree = "<group>"; };
 		E4AC9B3F2DED703D0051F261 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		E4AC9B412DED76380051F261 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		E4AC9B432DED76540051F261 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		E4AC9B452DED76650051F261 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,9 @@
 		E4AC9B3E2DED70360051F261 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC9B452DED76650051F261 /* API.swift */,
+				E4AC9B432DED76540051F261 /* DataParser.swift */,
+				E4AC9B412DED76380051F261 /* NetworkClient.swift */,
 				E4AC9B3F2DED703D0051F261 /* NetworkError.swift */,
 			);
 			path = Networking;
@@ -224,7 +233,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4AC9B402DED703D0051F261 /* NetworkError.swift in Sources */,
+				E4AC9B442DED76540051F261 /* DataParser.swift in Sources */,
 				E4AC9B332DED6F4C0051F261 /* MovieListView.swift in Sources */,
+				E4AC9B422DED76380051F261 /* NetworkClient.swift in Sources */,
+				E4AC9B462DED76650051F261 /* API.swift in Sources */,
 				E4AC9B342DED6F4C0051F261 /* TMDB_Task_erfan_dadrasApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
