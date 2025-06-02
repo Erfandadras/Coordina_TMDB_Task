@@ -12,16 +12,13 @@ struct MovieListItemView: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            AsyncImage(url: data.imageUrl, scale: 1) { image in
-                image.resizable(capInsets: .init(.zero),
-                               resizingMode: .stretch)
-            } placeholder: {
+            AsyncImageView(url: data.imageUrl,
+                           contentMode: .fill) {
                 Image(systemName: "photo")
                     .renderingMode(.template)
                     .resizable(capInsets: .init(.zero),
                                    resizingMode: .stretch)
                     .foregroundStyle(.black.opacity(0.7))
-                
             }
             .frame(width: 120, height: 100)
             .cornerRadius(12)

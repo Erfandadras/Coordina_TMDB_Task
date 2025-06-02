@@ -39,6 +39,9 @@
 		E4AC9B872DEDE3240051F261 /* MovieListCoordinatorPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B862DEDE3190051F261 /* MovieListCoordinatorPath.swift */; };
 		E4AC9B892DEDE4B30051F261 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B882DEDE4AF0051F261 /* Utils.swift */; };
 		E4AC9B992DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B972DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests.swift */; };
+		E4AC9B9E2DEDFEAD0051F261 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B9B2DEDFEAD0051F261 /* ImageCache.swift */; };
+		E4AC9B9F2DEDFEAD0051F261 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B9C2DEDFEAD0051F261 /* ImageLoader.swift */; };
+		E4AC9BA02DEDFEAD0051F261 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B9A2DEDFEAD0051F261 /* AsyncImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,9 @@
 		E4AC9B882DEDE4AF0051F261 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		E4AC9B8E2DEDEAAF0051F261 /* TMDB_Task_erfan_dadrasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDB_Task_erfan_dadrasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4AC9B972DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_Task_erfan_dadrasTests.swift; sourceTree = "<group>"; };
+		E4AC9B9A2DEDFEAD0051F261 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		E4AC9B9B2DEDFEAD0051F261 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		E4AC9B9C2DEDFEAD0051F261 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +295,7 @@
 		E4AC9B5E2DED7F180051F261 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC9B9D2DEDFEAD0051F261 /* CacheSystem */,
 				E4AC9B832DEDE2CF0051F261 /* Coordinator.swift */,
 				E4AC9B682DED84680051F261 /* BaseViewModel.swift */,
 				E4AC9B622DED7F760051F261 /* LogManager.swift */,
@@ -360,6 +367,16 @@
 				E4AC9B972DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests.swift */,
 			);
 			path = TMDB_Task_erfan_dadrasTests;
+			sourceTree = "<group>";
+		};
+		E4AC9B9D2DEDFEAD0051F261 /* CacheSystem */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC9B9A2DEDFEAD0051F261 /* AsyncImageView.swift */,
+				E4AC9B9B2DEDFEAD0051F261 /* ImageCache.swift */,
+				E4AC9B9C2DEDFEAD0051F261 /* ImageLoader.swift */,
+			);
+			path = CacheSystem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +485,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AC9B9E2DEDFEAD0051F261 /* ImageCache.swift in Sources */,
+				E4AC9B9F2DEDFEAD0051F261 /* ImageLoader.swift in Sources */,
+				E4AC9BA02DEDFEAD0051F261 /* AsyncImageView.swift in Sources */,
 				E4AC9B402DED703D0051F261 /* NetworkSetup.swift in Sources */,
 				E4AC9B6B2DED84BD0051F261 /* MovieListViewModel.swift in Sources */,
 				E4AC9B842DEDE2CF0051F261 /* Coordinator.swift in Sources */,
