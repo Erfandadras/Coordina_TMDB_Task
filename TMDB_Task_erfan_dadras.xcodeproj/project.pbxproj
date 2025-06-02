@@ -38,7 +38,18 @@
 		E4AC9B842DEDE2CF0051F261 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B832DEDE2CF0051F261 /* Coordinator.swift */; };
 		E4AC9B872DEDE3240051F261 /* MovieListCoordinatorPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B862DEDE3190051F261 /* MovieListCoordinatorPath.swift */; };
 		E4AC9B892DEDE4B30051F261 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B882DEDE4AF0051F261 /* Utils.swift */; };
+		E4AC9B992DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B972DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4AC9B922DEDEAAF0051F261 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4AC9B122DED6F260051F261 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E4AC9B192DED6F260051F261;
+			remoteInfo = TMDB_Task_erfan_dadras;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E4AC9B1A2DED6F260051F261 /* TMDB_Task_erfan_dadras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB_Task_erfan_dadras.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,10 +84,19 @@
 		E4AC9B832DEDE2CF0051F261 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E4AC9B862DEDE3190051F261 /* MovieListCoordinatorPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCoordinatorPath.swift; sourceTree = "<group>"; };
 		E4AC9B882DEDE4AF0051F261 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		E4AC9B8E2DEDEAAF0051F261 /* TMDB_Task_erfan_dadrasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDB_Task_erfan_dadrasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4AC9B972DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_Task_erfan_dadrasTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E4AC9B172DED6F260051F261 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4AC9B8B2DEDEAAF0051F261 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -90,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				E4AC9B302DED6F4C0051F261 /* TMDB_Task_erfan_dadras */,
+				E4AC9B982DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests */,
 				E4AC9B1B2DED6F260051F261 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				E4AC9B1A2DED6F260051F261 /* TMDB_Task_erfan_dadras.app */,
+				E4AC9B8E2DEDEAAF0051F261 /* TMDB_Task_erfan_dadrasTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,6 +354,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E4AC9B982DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC9B972DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests.swift */,
+			);
+			path = TMDB_Task_erfan_dadrasTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -354,6 +384,26 @@
 			productReference = E4AC9B1A2DED6F260051F261 /* TMDB_Task_erfan_dadras.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E4AC9B8D2DEDEAAF0051F261 /* TMDB_Task_erfan_dadrasTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4AC9B942DEDEAAF0051F261 /* Build configuration list for PBXNativeTarget "TMDB_Task_erfan_dadrasTests" */;
+			buildPhases = (
+				E4AC9B8A2DEDEAAF0051F261 /* Sources */,
+				E4AC9B8B2DEDEAAF0051F261 /* Frameworks */,
+				E4AC9B8C2DEDEAAF0051F261 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4AC9B932DEDEAAF0051F261 /* PBXTargetDependency */,
+			);
+			name = TMDB_Task_erfan_dadrasTests;
+			packageProductDependencies = (
+			);
+			productName = TMDB_Task_erfan_dadrasTests;
+			productReference = E4AC9B8E2DEDEAAF0051F261 /* TMDB_Task_erfan_dadrasTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -366,6 +416,10 @@
 				TargetAttributes = {
 					E4AC9B192DED6F260051F261 = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					E4AC9B8D2DEDEAAF0051F261 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E4AC9B192DED6F260051F261;
 					};
 				};
 			};
@@ -384,6 +438,7 @@
 			projectRoot = "";
 			targets = (
 				E4AC9B192DED6F260051F261 /* TMDB_Task_erfan_dadras */,
+				E4AC9B8D2DEDEAAF0051F261 /* TMDB_Task_erfan_dadrasTests */,
 			);
 		};
 /* End PBXProject section */
@@ -396,6 +451,13 @@
 				E4AC9B312DED6F4C0051F261 /* Preview Assets.xcassets in Resources */,
 				E4AC9B322DED6F4C0051F261 /* Assets.xcassets in Resources */,
 				E4AC9B552DED7CC40051F261 /* Movies.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4AC9B8C2DEDEAAF0051F261 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +499,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E4AC9B8A2DEDEAAF0051F261 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4AC9B992DEDEAB80051F261 /* TMDB_Task_erfan_dadrasTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4AC9B932DEDEAAF0051F261 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E4AC9B192DED6F260051F261 /* TMDB_Task_erfan_dadras */;
+			targetProxy = E4AC9B922DEDEAAF0051F261 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E4AC9B262DED6F270051F261 /* Debug */ = {
@@ -615,6 +693,40 @@
 			};
 			name = Release;
 		};
+		E4AC9B952DEDEAAF0051F261 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ios..TMDB-Task-erfan-dadras.com.TMDB-Task-erfan-dadrasTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TMDB_Task_erfan_dadras.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TMDB_Task_erfan_dadras";
+			};
+			name = Debug;
+		};
+		E4AC9B962DEDEAAF0051F261 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ios..TMDB-Task-erfan-dadras.com.TMDB-Task-erfan-dadrasTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TMDB_Task_erfan_dadras.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TMDB_Task_erfan_dadras";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -632,6 +744,15 @@
 			buildConfigurations = (
 				E4AC9B292DED6F270051F261 /* Debug */,
 				E4AC9B2A2DED6F270051F261 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4AC9B942DEDEAAF0051F261 /* Build configuration list for PBXNativeTarget "TMDB_Task_erfan_dadrasTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4AC9B952DEDEAAF0051F261 /* Debug */,
+				E4AC9B962DEDEAAF0051F261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
