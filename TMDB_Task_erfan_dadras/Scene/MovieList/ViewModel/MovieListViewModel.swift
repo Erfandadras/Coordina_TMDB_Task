@@ -36,12 +36,13 @@ final class MovieListViewModel: BaseViewModel {
     /// Fetches movie data from the data source
     /// Updates the movies array and view state based on the result
     override func fetchData() {
+        self.updateState(state: .loading)
         Task {
             do {
                 let (data, hasMoreData) = try await dataSource.fetchData()
                 mainThread {
                     self.hasMoreData = hasMoreData
-                    self.movies = data
+                    self.movies = self.makeMoviesUnique(data)
                     self.updateState(state: data.isEmpty ? .noData : .success)
                 }
             } catch {
@@ -62,7 +63,7 @@ final class MovieListViewModel: BaseViewModel {
                 let (data, hasMoreData) = try await dataSource.refresh()
                 mainThread {
                     self.hasMoreData = hasMoreData
-                    self.movies = data
+                    self.movies = self.makeMoviesUnique(data)
                     self.updateState(state: data.isEmpty ? .noData : .success)
                 }
             } catch {
@@ -81,10 +82,11 @@ final class MovieListViewModel: BaseViewModel {
         self.updateState(state: .loading)
         Task {
             do {
-                let (data, hasMoreData) = try await dataSource.fetchData()
+                let (data, hasMoreData) = try await dataSource.loadMoreData()
                 mainThread {
                     self.hasMoreData = hasMoreData
-                    self.movies += data
+                    let combinedMovies = self.movies + data
+                    self.movies = self.makeMoviesUnique(combinedMovies)
                     self.updateState(state: self.movies.isEmpty ? .noData : .success)
                 }
             } catch {
@@ -105,7 +107,7 @@ final class MovieListViewModel: BaseViewModel {
                 let (data, hasMoreData) = try await dataSource.search()
                 mainThread {
                     self.hasMoreData = hasMoreData
-                    self.movies = data
+                    self.movies = self.makeMoviesUnique(data)
                     self.updateState(state: data.isEmpty ? .noData : .success)
                 }
             } catch {
@@ -115,6 +117,24 @@ final class MovieListViewModel: BaseViewModel {
                 }
             }
         }
+    }
+    
+    // MARK: - Utility Methods
+    /// Removes duplicate movies based on their unique ID
+    /// - Parameter movies: Array of movies that may contain duplicates
+    /// - Returns: Array of unique movies based on ID
+    private func makeMoviesUnique(_ movies: [MoviesUIModel]) -> [MoviesUIModel] {
+        var uniqueMovies: [MoviesUIModel] = []
+        var seenIds: Set<Int> = []
+        
+        for movie in movies {
+            if !seenIds.contains(movie.id) {
+                uniqueMovies.append(movie)
+                seenIds.insert(movie.id)
+            }
+        }
+        
+        return uniqueMovies
     }
 }
 

@@ -26,26 +26,20 @@ struct MovieListItemView: View {
             .frame(width: 120, height: 100)
             .cornerRadius(12)
             
-            VStack(alignment: .leading, spacing: 14) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text(data.title)
+                    .lineLimit(2)
                     .font(.system(size: 16))
                     .fontWeight(.semibold)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.7)
-                    .leading()
-                    .frame(maxWidth: .infinity)
                 
-                Spacer()
+                Spacer(minLength: 0)
                 Text(data.date)
                     .font(.system(size: 14))
                     .fontWeight(.medium)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.leading)
                     .leading()
             }// text VStack
             .padding(.vertical, 12)
             .frame(maxWidth: .infinity)
-            Spacer()
         }//HStack
         .frame(maxWidth: .infinity, maxHeight: 100)
         .padding(.horizontal)

@@ -79,27 +79,30 @@ struct MovieListView: View {
                 viewModel.refresh()
             }
             .navigationTitle("Home")
+            .toolbar(content: {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        print("action")
+                        coordinator.append(MovieListCoordinatorPath.authorInfo)
+                    } label: {
+                        Image(systemName: "exclamationmark")
+                            .foregroundStyle(.black)
+                            .frame(width: 24,
+                                   height: 24,
+                                   alignment: .center)
+                            .padding(4)
+                            .background {
+                                Color.white
+                                    .clipShape(Circle())
+                                    .shadow(color: .black.opacity(0.15),
+                                            radius: 0, x: 0, y: 1)
+                            }
+                    }
+                }
+            })
             .navigationBarTitleDisplayMode(.automatic)
             .background(.white)
             .animation(.linear, value: focused)
-            .toolbar(content: {
-                Button {
-                    coordinator.append(MovieListCoordinatorPath.authorInfo)
-                } label: {
-                    Image(systemName: "exclamationmark")
-                        .foregroundStyle(.black)
-                        .frame(width: 24,
-                               height: 24,
-                               alignment: .center)
-                        .padding(4)
-                        .background {
-                            Color.white
-                                .clipShape(Circle())
-                                .shadow(color: .black.opacity(0.15),
-                                        radius: 0, x: 0, y: 1)
-                        }
-                }
-            })
             .navigationDestination(for: MovieListCoordinatorPath.self) { item in
                 switch item {
                 case .authorInfo:
@@ -121,9 +124,4 @@ struct MovieListView: View {
         .focused($focused)
         .background(.white)
     }
-}
-
-// MARK: - Preview
-#Preview {
-    MovieListView()
 }
