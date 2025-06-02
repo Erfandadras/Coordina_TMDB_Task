@@ -27,6 +27,10 @@
 		E4AC9B632DED7F7B0051F261 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B622DED7F760051F261 /* LogManager.swift */; };
 		E4AC9B692DED84680051F261 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B682DED84680051F261 /* BaseViewModel.swift */; };
 		E4AC9B6B2DED84BD0051F261 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B6A2DED84B50051F261 /* MovieListViewModel.swift */; };
+		E4AC9B6E2DED87110051F261 /* GenericPaginateRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B6D2DED87060051F261 /* GenericPaginateRM.swift */; };
+		E4AC9B702DED87400051F261 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B6F2DED87400051F261 /* NetworkService.swift */; };
+		E4AC9B722DED881C0051F261 /* MovieRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B712DED881C0051F261 /* MovieRM.swift */; };
+		E4AC9B742DED888C0051F261 /* MoviesNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B732DED888C0051F261 /* MoviesNetworkClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,10 @@
 		E4AC9B622DED7F760051F261 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		E4AC9B682DED84680051F261 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		E4AC9B6A2DED84B50051F261 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
+		E4AC9B6D2DED87060051F261 /* GenericPaginateRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPaginateRM.swift; sourceTree = "<group>"; };
+		E4AC9B6F2DED87400051F261 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E4AC9B712DED881C0051F261 /* MovieRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRM.swift; sourceTree = "<group>"; };
+		E4AC9B732DED888C0051F261 /* MoviesNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesNetworkClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +174,7 @@
 		E4AC9B3C2DED6FA20051F261 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC9B712DED881C0051F261 /* MovieRM.swift */,
 				E4AC9B582DED7D800051F261 /* MovieUIModel.swift */,
 			);
 			path = Model;
@@ -186,6 +195,7 @@
 				E4AC9B432DED76540051F261 /* DataParser.swift */,
 				E4AC9B412DED76380051F261 /* NetworkClient.swift */,
 				E4AC9B3F2DED703D0051F261 /* NetworkSetup.swift */,
+				E4AC9B6F2DED87400051F261 /* NetworkService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -221,6 +231,7 @@
 		E4AC9B5A2DED7DDA0051F261 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC9B6C2DED87010051F261 /* Model */,
 				E4AC9B5E2DED7F180051F261 /* General */,
 				E4AC9B5B2DED7DE00051F261 /* Component */,
 			);
@@ -255,8 +266,17 @@
 		E4AC9B672DED84240051F261 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC9B732DED888C0051F261 /* MoviesNetworkClient.swift */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		E4AC9B6C2DED87010051F261 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC9B6D2DED87060051F261 /* GenericPaginateRM.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,9 +364,13 @@
 				E4AC9B462DED76650051F261 /* API.swift in Sources */,
 				E4AC9B612DED7F2A0051F261 /* CustomError.swift in Sources */,
 				E4AC9B342DED6F4C0051F261 /* TMDB_Task_erfan_dadrasApp.swift in Sources */,
+				E4AC9B722DED881C0051F261 /* MovieRM.swift in Sources */,
 				E4AC9B512DED78940051F261 /* Bundle+decode.swift in Sources */,
+				E4AC9B742DED888C0051F261 /* MoviesNetworkClient.swift in Sources */,
 				E4AC9B532DED78E80051F261 /* Array+replace.swift in Sources */,
+				E4AC9B6E2DED87110051F261 /* GenericPaginateRM.swift in Sources */,
 				E4AC9B692DED84680051F261 /* BaseViewModel.swift in Sources */,
+				E4AC9B702DED87400051F261 /* NetworkService.swift in Sources */,
 				E4AC9B5D2DED7DFE0051F261 /* View+placeholder+anchor.swift in Sources */,
 				E4AC9B4A2DED77940051F261 /* Data+decode+mismatch.swift in Sources */,
 				E4AC9B572DED7D670051F261 /* MovieListItemView.swift in Sources */,

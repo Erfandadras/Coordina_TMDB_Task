@@ -10,7 +10,7 @@ import Foundation
 /// Protocol for parsing network response data into specific types
 protocol DataParser {
     /// Associated type representing the expected decoded data type
-    associatedtype T: Codable
+    associatedtype T: Decodable
     
     /// Maps raw network response data to the expected type
     /// - Parameters:
