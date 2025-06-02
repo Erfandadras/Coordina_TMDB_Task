@@ -8,6 +8,12 @@
 import Foundation
 
 extension Bundle {
+    /// Decodes a JSON file from the app bundle into a specified Decodable type
+    /// - Parameters:
+    ///   - file: Name of the file (without extension)
+    ///   - withExtension: File extension (defaults to "json")
+    /// - Returns: Decoded object of type T
+    /// - Throws: NSError if file is not found, cannot be loaded, or fails to decode
     func decode<T: Decodable>(_ file: String, withExtension: String = "json") throws -> T {
         guard let url = self.url(forResource: file, withExtension: withExtension) else {
             throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to locate \(file + withExtension) in bundle."])
