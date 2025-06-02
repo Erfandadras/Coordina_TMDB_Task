@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 /// View model responsible for managing movie list data and state
 final class MovieListViewModel: BaseViewModel {
@@ -13,6 +14,10 @@ final class MovieListViewModel: BaseViewModel {
     // MARK: - Published Properties
     /// Array of movie UI models to display in the list
     @Published var movies: [MoviesUIModel] = []
+    /// Current search keyword binding to UI
+    @Published var keyword: String = ""
+    /// Flag indicating if more data is available for pagination
+    @Published var hasMoreData: Bool = false
     
     // MARK: - Private Properties
     /// Data source repository for fetching movie data
@@ -23,6 +28,8 @@ final class MovieListViewModel: BaseViewModel {
     /// - Parameter dataSource: Repository for movie data (defaults to production implementation)
     init(dataSource: MoviesDatasourceRepo = MoviesDatasource(network: .init(client: MoviesNetworkClient()))) {
         self.dataSource = dataSource
+        super.init()
+        bind()
     }
     
     // MARK: - Data Loading Methods
@@ -31,8 +38,9 @@ final class MovieListViewModel: BaseViewModel {
     override func fetchData() {
         Task {
             do {
-                let data = try await dataSource.fetchData()
+                let (data, hasMoreData) = try await dataSource.fetchData()
                 mainThread {
+                    self.hasMoreData = hasMoreData
                     self.movies = data
                     self.updateState(state: data.isEmpty ? .noData : .success)
                 }
@@ -45,15 +53,91 @@ final class MovieListViewModel: BaseViewModel {
         }
     }
     
-    /// Refreshes the movie list data
-    /// TODO: Implement refresh functionality
+    /// Refreshes the movie list data by resetting to first page
+    /// Used for pull-to-refresh functionality
     func refresh() {
-        // Implementation needed for pull-to-refresh
+        self.updateState(state: .loading)
+        Task {
+            do {
+                let (data, hasMoreData) = try await dataSource.refresh()
+                mainThread {
+                    self.hasMoreData = hasMoreData
+                    self.movies = data
+                    self.updateState(state: data.isEmpty ? .noData : .success)
+                }
+            } catch {
+                Logger.log(.error, error.localizedDescription)
+                mainThread {
+                    self.updateState(state: .failure(error: error))
+                }
+            }
+        }
     }
     
-    /// Loads more movies for pagination
-    /// TODO: Implement pagination functionality
+    /// Loads more movies for infinite scrolling pagination
+    /// Appends new data to existing movies array
     func loadMore() {
-        // Implementation needed for infinite scrolling
+        guard self.state != .loading else { return }
+        self.updateState(state: .loading)
+        Task {
+            do {
+                let (data, hasMoreData) = try await dataSource.fetchData()
+                mainThread {
+                    self.hasMoreData = hasMoreData
+                    self.movies += data
+                    self.updateState(state: self.movies.isEmpty ? .noData : .success)
+                }
+            } catch {
+                Logger.log(.error, error.localizedDescription)
+                //TODO: - throw an error
+            }
+        }
+    }
+    
+    /// Performs search with the provided keyword
+    /// Updates data source with keyword and fetches filtered results
+    /// - Parameter keyword: Search term to filter movies
+    private func search(with keyword: String) {
+        self.updateState(state: .loading)
+        self.dataSource.update(keyword: keyword)
+        Task {
+            do {
+                let (data, hasMoreData) = try await dataSource.search()
+                mainThread {
+                    self.hasMoreData = hasMoreData
+                    self.movies = data
+                    self.updateState(state: data.isEmpty ? .noData : .success)
+                }
+            } catch {
+                Logger.log(.error, error.localizedDescription)
+                mainThread {
+                    self.updateState(state: .failure(error: error))
+                }
+            }
+        }
+    }
+}
+
+// MARK: - Reactive Bindings
+extension MovieListViewModel{
+    /// Sets up reactive bindings for search functionality
+    /// Implements debounced search with 500ms delay to avoid excessive API calls
+    private func bind() {
+        $keyword
+            .debounce(for: .milliseconds(500), scheduler: RunLoop.main) // Debounce for 500ms
+            .removeDuplicates() // Avoid triggering fetch for the same value
+            .map({$0.trimmingCharacters(in: .whitespacesAndNewlines)})
+            .sink { [weak self] keyword in
+                guard let self else { return }
+                if keyword.isEmpty {
+                    // Clear search mode and fetch regular movie list
+                    self.dataSource.update(keyword: nil)
+                    self.fetchData()
+                } else if keyword.count > 2 {
+                    // Perform search only if keyword has more than 2 characters
+                    self.search(with: keyword)
+                }
+            }
+            .store(in: &bag)
     }
 }

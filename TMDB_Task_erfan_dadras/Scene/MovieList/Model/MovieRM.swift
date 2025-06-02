@@ -45,5 +45,11 @@ struct MovieRM: Codable { // Movie Response Model
         imagePath = try container.decodeIfPresent(String.self, forKey: .imagePath)
         date = try container.decodeIfPresent(String.self, forKey: .date) ?? "unknown"
     }
+    
+    /// add what ever you want to filter data
+    func filter(with keyword: String) -> Bool {
+        let keywordLower = keyword.lowercased()
+        return title.lowercased().contains(keywordLower)
+    }
 }
 

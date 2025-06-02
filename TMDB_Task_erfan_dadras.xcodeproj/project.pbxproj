@@ -33,6 +33,7 @@
 		E4AC9B742DED888C0051F261 /* MoviesNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B732DED888C0051F261 /* MoviesNetworkClient.swift */; };
 		E4AC9B772DED89960051F261 /* MoviesDatasourceRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B762DED89960051F261 /* MoviesDatasourceRepo.swift */; };
 		E4AC9B7A2DEDCC880051F261 /* SafeAreaInsetsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B792DEDCC880051F261 /* SafeAreaInsetsKey.swift */; };
+		E4AC9B7E2DEDDDAE0051F261 /* Keyboard+hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B7D2DEDDDA50051F261 /* Keyboard+hide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		E4AC9B732DED888C0051F261 /* MoviesNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesNetworkClient.swift; sourceTree = "<group>"; };
 		E4AC9B762DED89960051F261 /* MoviesDatasourceRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDatasourceRepo.swift; sourceTree = "<group>"; };
 		E4AC9B792DEDCC880051F261 /* SafeAreaInsetsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaInsetsKey.swift; sourceTree = "<group>"; };
+		E4AC9B7D2DEDDDA50051F261 /* Keyboard+hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+hide.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 		E4AC9B482DED77800051F261 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC9B7D2DEDDDA50051F261 /* Keyboard+hide.swift */,
 				E4AC9B5C2DED7DF10051F261 /* View+placeholder+anchor.swift */,
 				E4AC9B502DED788B0051F261 /* Bundle+decode.swift */,
 				E4AC9B522DED78E10051F261 /* Array+replace.swift */,
@@ -395,6 +398,7 @@
 				E4AC9B772DED89960051F261 /* MoviesDatasourceRepo.swift in Sources */,
 				E4AC9B702DED87400051F261 /* NetworkService.swift in Sources */,
 				E4AC9B5D2DED7DFE0051F261 /* View+placeholder+anchor.swift in Sources */,
+				E4AC9B7E2DEDDDAE0051F261 /* Keyboard+hide.swift in Sources */,
 				E4AC9B4A2DED77940051F261 /* Data+decode+mismatch.swift in Sources */,
 				E4AC9B572DED7D670051F261 /* MovieListItemView.swift in Sources */,
 				E4AC9B7A2DEDCC880051F261 /* SafeAreaInsetsKey.swift in Sources */,

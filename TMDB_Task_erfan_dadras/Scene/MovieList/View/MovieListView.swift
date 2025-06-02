@@ -55,10 +55,20 @@ struct MovieListView: View {
                     
                     // Movie List Content
                     LazyVStack(spacing: 8){
-                        ForEach(viewModel.movies) { item in
+                        ForEach(viewModel.movies.indices, id: \.self) { index in
+                            let item = viewModel.movies[index]
                             MovieListItemView(data: item)
                                 .background(.white)
                             .id(item.id)
+                            if index == viewModel.movies.count - 1 && viewModel.hasMoreData {
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle())
+                                    .onAppear {
+                                        if viewModel.state == .success {
+                                            viewModel.loadMore()
+                                        }
+                                    }
+                            }
                         }
                     }
                     .padding(.bottom, insets.bottom)
@@ -73,11 +83,14 @@ struct MovieListView: View {
                 .animation(.linear, value: focused)
             }
         }// navigation view
+        .onTapGesture {
+            hideKeyboard()
+        }
         .onAppear {
             // Load data when view appears
             viewModel.fetchData()
         }
-        .searchable(text: .constant(""),
+        .searchable(text: $viewModel.keyword,
                     placement: .navigationBarDrawer,
                     prompt: Text("Search"))
         .focused($focused)
