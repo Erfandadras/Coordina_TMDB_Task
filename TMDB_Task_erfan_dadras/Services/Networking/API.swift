@@ -14,6 +14,6 @@ struct API {
     static let token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YmI2MDFjMDY1MmNmZDc1OGY4ZWYxMThkODk1MDhjZCIsIm5iZiI6MTc0ODg0NTQyNS40ODE5OTk5LCJzdWIiOiI2ODNkNDM3MTcxMzk1Mjg0MzRhZDdmMjciLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._OQRuEW0cjtjtdMlkkCdgxjOArpq58F2lh_HqghArzs"
     
     struct Routes {
-        
+        static let movieList = baseURL + "discover/movie"
     }
 }
