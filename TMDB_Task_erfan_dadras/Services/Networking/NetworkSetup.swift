@@ -1,5 +1,5 @@
 //
-//  NetworkError.swift
+//  NetworkSetup.swift
 //  TMDB_Task_erfan_dadras
 //
 //  Created by Erfan mac mini on 6/2/25.
@@ -7,10 +7,12 @@
 
 import Foundation
 
+/// Network-related error types
 enum NetworkError: Error {
     case invalidURL
 }
 
+/// HTTP method types for network requests
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
@@ -19,7 +21,8 @@ enum HTTPMethod: String {
 }
 
 
-// MARK: - network setup
+// MARK: - Network setup configuration
+/// Configuration struct for setting up network requests
 struct NetworkSetup {
     var route: String
     var params: [String: String]?
@@ -28,6 +31,14 @@ struct NetworkSetup {
     var headers: [String: String]
     var range: FlattenSequence<[ClosedRange<Int>]>
     
+    /// Initializes a network setup configuration
+    /// - Parameters:
+    ///   - route: The URL string for the request
+    ///   - params: Query parameters as key-value pairs
+    ///   - method: HTTP method (defaults to GET)
+    ///   - body: Request body data for POST/PUT requests
+    ///   - range: Acceptable HTTP status code ranges
+    ///   - headers: Custom HTTP headers
     init(route: String,
          params: [String: String]? = nil,
          method: HTTPMethod = .get,
@@ -42,11 +53,16 @@ struct NetworkSetup {
         self.headers = headers
     }
     
+    /// Converts the network setup into a URLRequest
+    /// - Returns: Configured URLRequest ready for network call
+    /// - Throws: NetworkError.invalidURL if URL construction fails
     func asUrlRequest() throws -> URLRequest {
         guard let url = URL(string: route) else {
             throw NetworkError.invalidURL
         }
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        
+        // Add query parameters if provided
         if let queryParams = params {
             urlComponents?.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: $0.value) }
         }
@@ -58,6 +74,8 @@ struct NetworkSetup {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.httpBody = body
+        
+        // Set default content type
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         // Add custom headers

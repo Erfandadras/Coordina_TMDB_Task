@@ -1,9 +1,18 @@
+//
+//  MovieListItemView.swift
+//  TMDB_Task_erfan_dadras
+//
+//  Created by Erfan mac mini on 6/2/25.
+//
+
+import SwiftUI
+
 struct MovieListItemView: View {
     let data: MoviesUIModel
     
     var body: some View {
         HStack(spacing: 12) {
-            ImageViewBuilder(url: data.imageUrl)
+            AsyncImage(url: data.imageUrl)
                 .aspectRatio(1.2, contentMode: .fit)
                 .frame(maxWidth: 120)
                 .background(Color.black)
