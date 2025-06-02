@@ -15,5 +15,6 @@ struct API {
     
     struct Routes {
         static let movieList = baseURL + "discover/movie"
+        static let search = baseURL + "search/movie"
     }
 }

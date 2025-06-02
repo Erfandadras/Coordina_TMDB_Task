@@ -12,11 +12,19 @@ struct MovieListItemView: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            AsyncImage(url: data.imageUrl)
-                .aspectRatio(1.2, contentMode: .fit)
-                .frame(maxWidth: 120)
-                .background(Color.black)
-                .cornerRadius(12)
+            AsyncImage(url: data.imageUrl, scale: 1) { image in
+                image.resizable(capInsets: .init(.zero),
+                               resizingMode: .stretch)
+            } placeholder: {
+                Image(systemName: "photo")
+                    .renderingMode(.template)
+                    .resizable(capInsets: .init(.zero),
+                                   resizingMode: .stretch)
+                    .foregroundStyle(.black.opacity(0.7))
+                
+            }
+            .frame(width: 120, height: 100)
+            .cornerRadius(12)
             
             VStack(alignment: .leading, spacing: 14) {
                 Text(data.title)
@@ -35,11 +43,11 @@ struct MovieListItemView: View {
                     .multilineTextAlignment(.leading)
                     .leading()
             }// text VStack
-            .padding(.vertical, 6)
+            .padding(.vertical, 12)
             .frame(maxWidth: .infinity)
             Spacer()
         }//HStack
-        .frame(maxWidth: .infinity, maxHeight: 120 / 1.2)
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: 100)
+        .padding(.horizontal)
     }
 }

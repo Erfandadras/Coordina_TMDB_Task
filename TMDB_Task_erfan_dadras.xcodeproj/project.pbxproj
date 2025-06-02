@@ -32,6 +32,7 @@
 		E4AC9B722DED881C0051F261 /* MovieRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B712DED881C0051F261 /* MovieRM.swift */; };
 		E4AC9B742DED888C0051F261 /* MoviesNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B732DED888C0051F261 /* MoviesNetworkClient.swift */; };
 		E4AC9B772DED89960051F261 /* MoviesDatasourceRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B762DED89960051F261 /* MoviesDatasourceRepo.swift */; };
+		E4AC9B7A2DEDCC880051F261 /* SafeAreaInsetsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC9B792DEDCC880051F261 /* SafeAreaInsetsKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		E4AC9B712DED881C0051F261 /* MovieRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRM.swift; sourceTree = "<group>"; };
 		E4AC9B732DED888C0051F261 /* MoviesNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesNetworkClient.swift; sourceTree = "<group>"; };
 		E4AC9B762DED89960051F261 /* MoviesDatasourceRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDatasourceRepo.swift; sourceTree = "<group>"; };
+		E4AC9B792DEDCC880051F261 /* SafeAreaInsetsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaInsetsKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 		E4AC9B5B2DED7DE00051F261 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC9B782DEDCC7F0051F261 /* Envirement */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -288,6 +291,14 @@
 				E4AC9B732DED888C0051F261 /* MoviesNetworkClient.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E4AC9B782DEDCC7F0051F261 /* Envirement */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC9B792DEDCC880051F261 /* SafeAreaInsetsKey.swift */,
+			);
+			path = Envirement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +397,7 @@
 				E4AC9B5D2DED7DFE0051F261 /* View+placeholder+anchor.swift in Sources */,
 				E4AC9B4A2DED77940051F261 /* Data+decode+mismatch.swift in Sources */,
 				E4AC9B572DED7D670051F261 /* MovieListItemView.swift in Sources */,
+				E4AC9B7A2DEDCC880051F261 /* SafeAreaInsetsKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
