@@ -147,13 +147,17 @@ struct AuthorInfoView: View {
     
     // MARK: - Private Methods
     private func openEmail() {
+        print("open email")
         if let url = URL(string: "mailto:erfandadras@gmail.com") {
+            print("open email2")
             UIApplication.shared.open(url)
         }
     }
     
     private func openGitHub() {
+        print("open web site")
         if let url = URL(string: "https://github.com/erfandadras") {
+            print("open web site2")
             UIApplication.shared.open(url)
         }
     }
@@ -196,6 +200,7 @@ struct AuthorInfoRow: View {
                     .foregroundColor(.secondary)
             }
         }
+        .background(Color(.secondarySystemBackground))
         .contentShape(Rectangle())
         .onTapGesture {
             if isInteractive {

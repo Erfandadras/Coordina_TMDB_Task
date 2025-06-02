@@ -78,8 +78,8 @@ final class MovieListViewModel: BaseViewModel {
     /// Loads more movies for infinite scrolling pagination
     /// Appends new data to existing movies array
     func loadMore() {
-        guard self.state != .loading else { return }
-        self.updateState(state: .loading)
+        guard self.state != .loadMore else { return }
+        self.updateState(state: .loadMore)
         Task {
             do {
                 let (data, hasMoreData) = try await dataSource.loadMoreData()

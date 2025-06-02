@@ -17,7 +17,7 @@ struct MovieListView: View {
     @StateObject var viewModel: MovieListViewModel
     /// Safe area insets from environment
     @Environment(\.safeAreaInsets) var insets
-    
+    @State private var navigationButtonID = UUID()
     /// Coordinator managing Navigations
     @StateObject var coordinator = Coordinator()
     // MARK: - Initialization
@@ -79,24 +79,10 @@ struct MovieListView: View {
                 viewModel.refresh()
             }
             .navigationTitle("Home")
-            .toolbar(content: {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        print("action")
+            .toolbar(id: UUID().uuidString, content: {
+                ToolbarItem(id: UUID().uuidString ,placement: .topBarTrailing) {
+                    Button("About", systemImage: "exclamationmark") {
                         coordinator.append(MovieListCoordinatorPath.authorInfo)
-                    } label: {
-                        Image(systemName: "exclamationmark")
-                            .foregroundStyle(.black)
-                            .frame(width: 24,
-                                   height: 24,
-                                   alignment: .center)
-                            .padding(4)
-                            .background {
-                                Color.white
-                                    .clipShape(Circle())
-                                    .shadow(color: .black.opacity(0.15),
-                                            radius: 0, x: 0, y: 1)
-                            }
                     }
                 }
             })

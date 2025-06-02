@@ -12,6 +12,7 @@ struct TMDB_Task_erfan_dadrasApp: App {
     var body: some Scene {
         WindowGroup {
             MovieListView()
+                .preferredColorScheme(.light)
         }
     }
 }

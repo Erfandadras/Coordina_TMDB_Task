@@ -18,6 +18,7 @@ enum ViewModelState: Equatable {
         case (.success, .success): return true
         case (.failure, .failure): return true
         case (.refresh, .refresh): return true
+        case (.loadMore, .loadMore): return true
         default: return false
         }
     }
@@ -26,6 +27,7 @@ enum ViewModelState: Equatable {
     case loading    // Loading data for the first time
     case noData     // No data available
     case success    // Data loaded successfully
+    case loadMore
     case failure(error: Error)  // Error occurred during data loading
 }
 
